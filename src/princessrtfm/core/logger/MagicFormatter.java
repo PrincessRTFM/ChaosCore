@@ -188,13 +188,13 @@ public class MagicFormatter extends Formatter {
 		public static final String LOG_MESSAGE = "message";
 	}
 	/**
-	 * The default format string for the logging output
-	 */
-	public static final String DEFAULT_FORMAT = "[&name&: &level&] &message&";
-	/**
 	 * The default delimiter, used to indicate magic
 	 */
 	public static final String DEFAULT_DELIM = "&";
+	/**
+	 * The default format string for the logging output
+	 */
+	public static final String DEFAULT_FORMAT = "[" + DEFAULT_DELIM + FormatCode.LOGGER_NAME + DEFAULT_DELIM + "/" + DEFAULT_DELIM + FormatCode.LEVEL_NAME + DEFAULT_DELIM + "] " + DEFAULT_DELIM + FormatCode.LOG_MESSAGE + DEFAULT_DELIM;
 	/**
 	 * Whether or not to enable magic formatting in the logged message by default
 	 */
