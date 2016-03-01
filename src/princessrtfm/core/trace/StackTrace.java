@@ -86,6 +86,24 @@ public class StackTrace {
 	public static String parentMethodName() {
 		return getTrace()[2].getMethodName();
 	}
+	/**
+	 * Get a string describing the trace point of the calling method, which is the method calling
+	 * tracePoint()
+	 *
+	 * @return &lt;class>.&lt;method>
+	 */
+	public static final String tracePoint() {
+		return getTrace()[1].getClassName() + "." + getTrace()[1].getMethodName();
+	}
+	/**
+	 * Get a string describing the trace point of the parent method, which is the method calling
+	 * the one which calls parentTracePoint()
+	 *
+	 * @return &lt;class>.&lt;method>
+	 */
+	public static final String parentTracePoint() {
+		return getTrace()[2].getClassName() + "." + getTrace()[2].getMethodName();
+	}
 	protected final StackTraceElement[] trace;
 	/**
 	 * Construct a new StackTrace, starting at the caller's PoV. The StackTrace constructor will not
