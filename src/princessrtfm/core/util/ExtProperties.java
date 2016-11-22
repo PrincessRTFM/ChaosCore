@@ -66,7 +66,7 @@ public class ExtProperties extends Properties {
 			out.append(line);
 			out.newLine();
 		}
-		out.append("#" + new Date().toString());
+		out.append("# " + new Date().toString());
 		out.newLine();
 		String[] keys = this.keyArray();
 		for (final String key : keys) {

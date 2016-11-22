@@ -6,9 +6,9 @@ import java.util.logging.Formatter;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 
+import princessrtfm.core.logger.Level;
 import princessrtfm.core.logger.MagicFormatter;
 import princessrtfm.core.logger.MagicFormatter.FormatCode;
-import princessrtfm.core.logger.Level;
 import princessrtfm.core.trace.StackTrace;
 
 
@@ -79,8 +79,9 @@ public class UtilityLogger {
 	 * @see StackTrace#parentMethodName()
 	 */
 	public void trace() {
-		if (LOG == null)
+		if (LOG == null) {
 			return;
+		}
 		// If I had a reason to, it would be POSSIBLE (probably) to reflect the caller, and get more
 		// information about them. I might be able to get the number of arguments, the types of
 		// each, the return type...
@@ -94,8 +95,9 @@ public class UtilityLogger {
 	 * @see StackTrace
 	 */
 	public void traceLong() {
-		if (LOG == null)
+		if (LOG == null) {
 			return;
+		}
 		// The one is so we skip the creation (the call from traceLong() to the constructor) but not
 		// ourself (the call from whoever invoked us to traceLong())
 		// Stack traces are hard to talk about :(
@@ -111,9 +113,10 @@ public class UtilityLogger {
 	// TRIVIA: I almost named this method paranoid after an old IRC client I used to use. It allowed
 	// you to set the level of messages it dumped to various levels, and the one to include
 	// everything was called Paranoid.
-	public void whisper(Object msg) {
-		if (LOG == null)
+	public void finest(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.finest(String.valueOf(msg));
 	}
 	/**
@@ -122,9 +125,10 @@ public class UtilityLogger {
 	 * @param msg
 	 *        the message to log
 	 */
-	public void mutter(Object msg) {
-		if (LOG == null)
+	public void finer(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.finer(String.valueOf(msg));
 	}
 	/**
@@ -133,9 +137,10 @@ public class UtilityLogger {
 	 * @param msg
 	 *        the message to log
 	 */
-	public void verbose(Object msg) {
-		if (LOG == null)
+	public void fine(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.fine(String.valueOf(msg));
 	}
 	/**
@@ -144,9 +149,10 @@ public class UtilityLogger {
 	 * @param msg
 	 *        The message to log
 	 */
-	public void echo(Object msg) {
-		if (LOG == null)
+	public void info(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.info(String.valueOf(msg));
 	}
 	/**
@@ -155,9 +161,10 @@ public class UtilityLogger {
 	 * @param msg
 	 *        The message to log
 	 */
-	public void warn(Object msg) {
-		if (LOG == null)
+	public void warning(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.warning(String.valueOf(msg));
 	}
 	/**
@@ -166,9 +173,10 @@ public class UtilityLogger {
 	 * @param msg
 	 *        The message to log
 	 */
-	public void problem(Object msg) {
-		if (LOG == null)
+	public void severe(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.severe(String.valueOf(msg));
 	}
 	/**
@@ -178,9 +186,10 @@ public class UtilityLogger {
 	 *        the message to log
 	 * @see princessrtfm.core.logger.Level#FATAL
 	 */
-	public void die(Object msg) {
-		if (LOG == null)
+	public void fatal(Object msg) {
+		if (LOG == null) {
 			return;
+		}
 		LOG.log(Level.FATAL, String.valueOf(msg));
 	}
 	/**
@@ -192,8 +201,9 @@ public class UtilityLogger {
 	 *        the exception to log
 	 */
 	public void thrown(String mini, Throwable t) {
-		if (LOG == null)
+		if (LOG == null) {
 			return;
+		}
 		LOG.warning(mini + " [" + t + "]");
 	}
 	/**
@@ -205,8 +215,9 @@ public class UtilityLogger {
 	 *        the exception to log
 	 */
 	public void exception(String mini, Throwable t) {
-		if (LOG == null)
+		if (LOG == null) {
 			return;
+		}
 		LOG.severe(mini + " [" + t + "]");
 	}
 	/**
@@ -219,8 +230,9 @@ public class UtilityLogger {
 	 * @see princessrtfm.core.logger.Level#FATAL
 	 */
 	public void error(String mini, Throwable t) {
-		if (LOG == null)
+		if (LOG == null) {
 			return;
+		}
 		LOG.log(Level.FATAL, mini, t);
 	}
 }

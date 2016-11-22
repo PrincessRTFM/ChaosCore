@@ -16,7 +16,7 @@ public class Version implements Comparable<Version> {
 	/**
 	 * The version of this copy of ChaosCore
 	 */
-	public static final Version CHAOSCORE_VERSION = new Version(1, 0, 0, "", "");
+	public static final Version CHAOSCORE_VERSION = new Version(1, 1, 0, "rc.3", "");
 	/**
 	 * Thrown by {@link Version#require(Version)} if this copy of ChaosCore is not at least the
 	 * requested version

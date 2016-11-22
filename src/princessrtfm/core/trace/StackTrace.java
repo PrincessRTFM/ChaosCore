@@ -96,8 +96,8 @@ public class StackTrace {
 		return getTrace()[1].getClassName() + "." + getTrace()[1].getMethodName();
 	}
 	/**
-	 * Get a string describing the trace point of the parent method, which is the method calling
-	 * the one which calls parentTracePoint()
+	 * Get a string describing the trace point of the parent method, which is the method calling the
+	 * one which calls parentTracePoint()
 	 *
 	 * @return &lt;class>.&lt;method>
 	 */
@@ -120,7 +120,7 @@ public class StackTrace {
 	 * Construct a new StackTrace from the caller's PoV, skipping the given number of frames. Pass
 	 * <tt>-1</tt> to include the StackTrace constructor. Pass <tt>0</tt> to include the method
 	 * creating this object. Pass <tt>1</tt> to skip the method creating this object and start at
-	 * that method's caller.
+	 * that method's caller. Ad infinitum.
 	 *
 	 * @param skipFrames
 	 *        the number of frames to skip (from the caller's perspective)
@@ -169,6 +169,9 @@ public class StackTrace {
 	 *        the Writer to print the stack trace to
 	 */
 	public void dump(Writer out) {
+		if (out == null) {
+			return;
+		}
 		BufferedWriter writer = new BufferedWriter(out);
 		for (StackTraceElement frame : trace) {
 			try {

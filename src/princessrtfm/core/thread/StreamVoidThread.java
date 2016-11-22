@@ -1,9 +1,7 @@
 package princessrtfm.core.thread;
 
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 
 
 /**
@@ -23,9 +21,7 @@ public class StreamVoidThread extends Thread {
 	@Override
 	public void run() {
 		try {
-			InputStreamReader isr = new InputStreamReader(is);
-			BufferedReader br = new BufferedReader(isr);
-			while (br.readLine() != null) {}
+			while (is.read() >= 0) {}
 		}
 		catch (Exception e) {
 			// Nothing to see here, move along.

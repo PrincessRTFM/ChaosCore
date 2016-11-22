@@ -62,6 +62,17 @@ public class Bitmask {
 	public final int value() {
 		return mask;
 	}
+	/**
+	 * Check if the bitmask includes a certain value
+	 *
+	 * @param test
+	 *        the flag(s) to check for
+	 * @return <code>true</code> if the given flag(s) is/are included in the bitmask,
+	 *         <code>false</code> otherwise
+	 */
+	public final boolean has(int test) {
+		return (mask & test) > 0;
+	}
 	@SuppressWarnings("javadoc")
 	@Override
 	public int hashCode() {
